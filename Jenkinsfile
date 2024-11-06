@@ -8,7 +8,7 @@ pipeline {
         stage('Clone the repository ') {
             steps {
                 
-             git branch: 'build-and-push-to-jfrog-jenkinsfile', credentialsId: 'gitcredentials', url: 'https://github.com/Manideepthaduriias/java-application.git'
+             git branch: 'build-and-push-to-jfrog-jenkinsfile', credentialsId: 'd427e0c7-b3b4-434f-94fc-caa5ff96258d', url: 'https://github.com/Manideepthaduriias/java-application.git'
                 
             }
         }
