@@ -20,7 +20,7 @@ pipeline {
         
         stage('Deploy to tomcat') {
             steps {
-            deploy adapters: [jboss7(credentialsId: '2f58aa9d-af8e-4d0d-accd-d931a82937c5', url: '')], contextPath: null, war: '**/*.war'
+            deploy adapters: [jboss7(credentialsId: '2f58aa9d-af8e-4d0d-accd-d931a82937c5', url: 'http://47.129.154.43:8080')], contextPath: null, war: '**/*.war'
                 
             }
         }
