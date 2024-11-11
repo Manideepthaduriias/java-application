@@ -1,12 +1,12 @@
 pipeline {
     agent any
     tools{
-        maven "maven3.9.9"
+        maven "Maven3.8.7"
     }
     stages {
       stage('Clone the repository'){
         steps{
-          git branch: 'pushing-docker-image-to-dockerhub-jenkinsfile', credentialsId: '84f26f86-f84b-4a19-946f-b266aa383022', url: 'https://github.com/Manideepthaduriias/java-application.git'
+          git branch: 'pushing-docker-image-to-dockerhub-jenkinsfile', credentialsId: 'Github_credentails', url: 'https://github.com/techworldwithmurali/java-application.git'
           
         } 
       }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 sh '''
                docker build . --tag web-application:$BUILD_NUMBER
-               docker tag web-application:$BUILD_NUMBER manideepk8s/web-application:$BUILD_NUMBER
+               docker tag web-application:$BUILD_NUMBER mmreddy424/web-application:$BUILD_NUMBER
                 
                 '''
                 
@@ -29,10 +29,10 @@ pipeline {
         }
         stage('Push Docker Image') {
             steps{
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-username-password', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                withCredentials([usernamePassword(credentialsId: 'Dockerhub-username-password', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                  sh '''
                  docker login -u $DOCKERHUB_USERNAME   -p $DOCKERHUB_PASSWORD
-                  docker push manideepk8s/web-application:$BUILD_NUMBER
+                  docker push mmreddy424/web-application:$BUILD_NUMBER
                     
                    ''' 
 
