@@ -6,7 +6,7 @@ pipeline {
     stages {
       stage('Clone the repository'){
         steps{
-          git branch: 'pushing-docker-image-to-dockerhub-jenkinsfile', credentialsId: '84f26f86-f84b-4a19-946f-b266aa383022', url: 'https://github.com/Manideepthaduriias/java-application.git'ion.git'
+          git branch: 'pushing-docker-image-to-dockerhub-jenkinsfile', credentialsId: '84f26f86-f84b-4a19-946f-b266aa383022', url: 'https://github.com/Manideepthaduriias/java-application.git'
           
         } 
       }
